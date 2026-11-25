@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سياسة الخصوصية — تطبيق زاد (Zad)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { cairo: ['Cairo', 'sans-serif'] },
+          colors: {
+            zad: {
+              dark: '#B70100',
+              red: '#E60000',
+              warm: '#B22A1C',
+              tint: '#FFF5F5',
+              bg: '#F4F4F4',
+              ink: '#1A1A1A',
+              muted: '#5C4D4B',
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { font-family: 'Cairo', sans-serif; background-color: #F4F4F4; color: #1A1A1A; }
+    .zad-gradient { background: linear-gradient(135deg, #B70100 0%, #E60000 55%, #B22A1C 100%); }
+    .nav-pill.active { background-color: #B70100; color: #ffffff; border-color: #B70100; }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #fff; }
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-zad-dark selection:text-white">
+
+  <!-- ═══ Crimson Melted-Sauce Header ═══ -->
+  <header class="relative zad-gradient text-white pb-16 pt-10 overflow-hidden">
+    <!-- Decorative silky waves -->
+    <svg class="absolute inset-0 w-full h-full opacity-15 pointer-events-none" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="none" stroke="#ffffff" stroke-width="3" d="M0,120 C320,40 620,210 1440,90" />
+      <path fill="none" stroke="#ffffff" stroke-width="2" d="M0,170 C400,80 780,240 1440,140" />
+    </svg>
+
+    <div class="relative max-w-4xl mx-auto px-5 sm:px-8">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur border border-white/30 flex items-center justify-center shadow-lg">
+            <span class="text-2xl font-black tracking-tight">زاد</span>
+          </div>
+          <div>
+            <p class="text-xs text-white/80 font-semibold">أكل بيتي أصيل بنَفَس الأمهات</p>
+            <h1 class="text-2xl sm:text-3xl font-black">سياسة الخصوصية</h1>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 no-print">
+          <span class="px-3.5 py-1.5 rounded-full bg-white/15 border border-white/25 text-xs font-bold">
+            آخر تحديث: نوفمبر 2026
+          </span>
+          <button onclick="window.print()" class="px-3.5 py-1.5 rounded-full bg-white text-zad-dark text-xs font-extrabold shadow hover:bg-zad-tint transition">
+            طباعة / PDF
+          </button>
+        </div>
+      </div>
+
+      <p class="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl">
+        نحترم خصوصيتك في تطبيق <strong>زاد (Zad)</strong> ونلتزم بحماية بياناتك الشخصية سواء كنت عميلاً، أو مطبخاً بيتياً، أو سائق توصيل.
+      </p>
+    </div>
+
+    <!-- Melted sauce wavy bottom edge -->
+    <svg class="absolute bottom-0 left-0 w-full h-12 sm:h-14" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="#F4F4F4" d="M0,38 C110,38 140,88 210,88 C280,88 300,32 410,32 C500,32 530,96 610,96 C690,96 720,28 840,28 C940,28 970,84 1050,84 C1130,84 1160,34 1260,34 C1340,34 1370,76 1440,56 L1440,100 L0,100 Z" />
+    </svg>
+  </header>
+
+  <!-- ═══ Sticky Quick Navigation ═══ -->
+  <nav class="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-stone-200/80 shadow-sm no-print">
+    <div id="toc" class="max-w-4xl mx-auto px-4 py-2.5 flex items-center gap-2 overflow-x-auto text-xs font-bold whitespace-nowrap">
+      <a href="#intro" class="nav-pill active px-3 py-1.5 rounded-full border border-stone-200 transition">1. مقدمة</a>
+      <a href="#data" class="nav-pill px-3 py-1.5 rounded-full border border-stone-200 text-zad-muted hover:border-zad-dark transition">2. البيانات المجمعة</a>
+      <a href="#usage" class="nav-pill px-3 py-1.5 rounded-full border border-stone-200 text-zad-muted hover:border-zad-dark transition">3. الاستخدام</a>
+      <a href="#sharing" class="nav-pill px-3 py-1.5 rounded-full border border-stone-200 text-zad-muted hover:border-zad-dark transition">4. المشاركة</a>
+      <a href="#security" class="nav-pill px-3 py-1.5 rounded-full border border-stone-200 text-zad-muted hover:border-zad-dark transition">5. الأمان</a>
+      <a href="#rights" class="nav-pill px-3 py-1.5 rounded-full border border-stone-200 text-zad-muted hover:border-zad-dark transition">6. حقوقك</a>
+      <a href="#children" class="nav-pill px-3 py-1.5 rounded-full border border-stone-200 text-zad-muted hover:border-zad-dark transition">7. الأطفال</a>
+      <a href="#changes" class="nav-pill px-3 py-1.5 rounded-full border border-stone-200 text-zad-muted hover:border-zad-dark transition">8. التحديثات</a>
+      <a href="#contact" class="nav-pill px-3 py-1.5 rounded-full border border-stone-200 text-zad-muted hover:border-zad-dark transition">9. تواصل معنا</a>
+    </div>
+  </nav>
+
+  <!-- ═══ Main Content Cards ═══ -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8 space-y-5">
+
+    <!-- 1. Intro -->
+    <section id="intro" class="policy-section bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-stone-200/70">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-9 h-9 rounded-xl bg-zad-tint text-zad-dark font-black flex items-center justify-center">1</span>
+        <h2 class="text-lg sm:text-xl font-black">مقدمة</h2>
+      </div>
+      <p class="text-sm sm:text-base text-zad-muted leading-loose">
+        مرحباً بك في تطبيق <strong>زاد (Zad)</strong> للأكل البيتي الأصيل. نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية. توضح هذه السياسة كيفية جمع واستخدام وحماية معلوماتك عند استخدام التطبيق سواء بصفتك <strong>عميلاً (طالب أكل)</strong>، أو <strong>مطبخاً بيتياً (شيف)</strong>، أو <strong>سائق توصيل</strong>.
+      </p>
+    </section>
+
+    <!-- 2. Data Collected -->
+    <section id="data" class="policy-section bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-stone-200/70">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-9 h-9 rounded-xl bg-zad-tint text-zad-dark font-black flex items-center justify-center">2</span>
+        <h2 class="text-lg sm:text-xl font-black">المعلومات التي نجمعها</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-3.5 text-sm leading-relaxed">
+        <div class="p-4 rounded-2xl bg-zad-tint/60 border border-red-100">
+          <h3 class="font-extrabold text-zad-dark mb-1">معلومات الحساب</h3>
+          <p class="text-zad-muted">الاسم الكامل، رقم الهاتف، البريد الإلكتروني، ونوع الحساب (عميل / مطبخ بيتي / سائق توصيل) عند التسجيل.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-zad-tint/60 border border-red-100">
+          <h3 class="font-extrabold text-zad-dark mb-1">الموقع الجغرافي (GPS)</h3>
+          <p class="text-zad-muted">لتحديد المحافظة والمنطقة، عرض المطابخ القريبة (حتى 50 كم أو نفس المحافظة)، حساب رسوم التوصيل حسب المسافة، وتتبع السائق لحظياً أثناء الطلب النشط فقط.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-zad-tint/60 border border-red-100">
+          <h3 class="font-extrabold text-zad-dark mb-1">الكاميرا والصور</h3>
+          <p class="text-zad-muted">مسح رموز <strong>QR Code</strong> لتأكيد استلام وتسليم الطلبات، ورفع صور الأطباق وفحص سلامة الغذاء (الهايجين) للمطابخ عند اختيارها من المستخدم.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-zad-tint/60 border border-red-100">
+          <h3 class="font-extrabold text-zad-dark mb-1">الطلبات والمعاملات</h3>
+          <p class="text-zad-muted">تفاصيل الطلبات، العناوين، وطريقة الدفع أو مراجع شحن رصيد التشغيل (فودافون كاش / إنستاباي). لا نحتفظ بأرقام البطاقات البنكية.</p>
+        </div>
+      </div>
+      <div class="mt-3.5 p-4 rounded-2xl bg-stone-50 border border-stone-200/70 text-sm">
+        <strong class="text-zad-ink">بيانات الجهاز والإشعارات:</strong>
+        <span class="text-zad-muted">نوع الجهاز، نظام التشغيل، ورمز الإشعارات (FCM) لإرسال تنبيهات حالة الطلبات وضمان استقرار التطبيق.</span>
+      </div>
+    </section>
+
+    <!-- 3. How we use data -->
+    <section id="usage" class="policy-section bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-stone-200/70">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-9 h-9 rounded-xl bg-zad-tint text-zad-dark font-black flex items-center justify-center">3</span>
+        <h2 class="text-lg sm:text-xl font-black">كيف نستخدم معلوماتك</h2>
+      </div>
+      <ul class="space-y-2.5 text-sm sm:text-base text-zad-muted">
+        <li class="flex items-start gap-2.5"><span class="text-zad-dark font-black">•</span> عرض المطابخ والعروض القريبة من موقعك وتشغيل نظام التوصيل والاستلام.</li>
+        <li class="flex items-start gap-2.5"><span class="text-zad-dark font-black">•</span> تمكين التتبع الفوري للطلبات على الخريطة وتأكيد الاستلام والتسليم عبر QR.</li>
+        <li class="flex items-start gap-2.5"><span class="text-zad-dark font-black">•</span> إدارة حسابات المطابخ (المواعيد، المنيو، رصيد التشغيل) وحسابات السائقين.</li>
+        <li class="flex items-start gap-2.5"><span class="text-zad-dark font-black">•</span> إرسال الإشعارات المتعلقة بحالة الطلبات والتحديثات المهمة.</li>
+        <li class="flex items-start gap-2.5"><span class="text-zad-dark font-black">•</span> ضمان أمان التطبيق ومنع الاحتيال والامتثال للمتطلبات القانونية.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Sharing -->
+    <section id="sharing" class="policy-section bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-stone-200/70">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-9 h-9 rounded-xl bg-zad-tint text-zad-dark font-black flex items-center justify-center">4</span>
+        <h2 class="text-lg sm:text-xl font-black">مشاركة المعلومات</h2>
+      </div>
+      <p class="text-sm sm:text-base text-zad-muted leading-loose mb-3">
+        نحن <strong>لا نبيع</strong> بياناتك الشخصية لأي أطراف ثالثة. قد نشارك المعلومات اللازمة فقط بالقدر المطلوب لتنفيذ الخدمة:
+      </p>
+      <ul class="space-y-2 text-sm sm:text-base text-zad-muted">
+        <li class="flex items-start gap-2.5"><span class="text-zad-dark font-black">•</span> <span><strong>بين أطراف الطلب:</strong> مشاركة اسم العميل وعنوان التوصيل مع المطبخ والسائق المعني بالطلب، ومشاركة اسم وصورة وموقع السائق اللحظي مع العميل أثناء التوصيل.</span></li>
+        <li class="flex items-start gap-2.5"><span class="text-zad-dark font-black">•</span> <span><strong>مزودو البنية التحتية التقنية:</strong> خدمات الاستضافة وقاعدة البيانات والإشعارات والخرائط المساعدة في تشغيل التطبيق.</span></li>
+        <li class="flex items-start gap-2.5"><span class="text-zad-dark font-black">•</span> <span><strong>الجهات المختصة:</strong> عند وجود التزام قانوني رسمي بذلك.</span></li>
+      </ul>
+    </section>
+
+    <!-- 5. Security -->
+    <section id="security" class="policy-section bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-stone-200/70">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-9 h-9 rounded-xl bg-zad-tint text-zad-dark font-black flex items-center justify-center">5</span>
+        <h2 class="text-lg sm:text-xl font-black">أمان البيانات</h2>
+      </div>
+      <p class="text-sm sm:text-base text-zad-muted leading-loose">
+        نتخذ تدابير تقنية وأمنية مناسبة لحماية معلوماتك من الوصول غير المصرح به أو التعديل أو الإفصاح، بما يشمل الاتصال المشفّر (HTTPS/TLS) وقواعد حماية الوصول إلى البيانات.
+      </p>
+    </section>
+
+    <!-- 6. Rights -->
+    <section id="rights" class="policy-section bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-stone-200/70">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-9 h-9 rounded-xl bg-zad-tint text-zad-dark font-black flex items-center justify-center">6</span>
+        <h2 class="text-lg sm:text-xl font-black">حقوقك</h2>
+      </div>
+      <ul class="space-y-2 text-sm sm:text-base text-zad-muted">
+        <li class="flex items-start gap-2.5"><span class="text-zad-dark font-black">•</span> الوصول إلى بياناتك الشخصية وتحديثها أو تصحيحها من داخل التطبيق (بما في ذلك تحديث الموقع والمحافظة).</li>
+        <li class="flex items-start gap-2.5"><span class="text-zad-dark font-black">•</span> طلب حذف حسابك وبياناتك الشخصية نهائياً.</li>
+        <li class="flex items-start gap-2.5"><span class="text-zad-dark font-black">•</span> سحب موافقتك على صلاحيات الموقع أو الكاميرا في أي وقت من إعدادات جهازك.</li>
+      </ul>
+    </section>
+
+    <!-- 7 & 8 Grid -->
+    <div class="grid sm:grid-cols-2 gap-5">
+      <section id="children" class="policy-section bg-white rounded-3xl p-6 shadow-sm border border-stone-200/70">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-9 h-9 rounded-xl bg-zad-tint text-zad-dark font-black flex items-center justify-center">7</span>
+          <h2 class="text-lg font-black">خصوصية الأطفال</h2>
+        </div>
+        <p class="text-sm text-zad-muted leading-loose">
+          تطبيق <strong>زاد (Zad)</strong> غير موجه للأطفال دون سن 13 عاماً، ولا نجمع عن عمد بيانات شخصية من الأطفال.
+        </p>
+      </section>
+
+      <section id="changes" class="policy-section bg-white rounded-3xl p-6 shadow-sm border border-stone-200/70">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-9 h-9 rounded-xl bg-zad-tint text-zad-dark font-black flex items-center justify-center">8</span>
+          <h2 class="text-lg font-black">التغييرات على السياسة</h2>
+        </div>
+        <p class="text-sm text-zad-muted leading-loose">
+          قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر، وسيتم نشر أي تحديث على هذه الصفحة مع تحديث تاريخ النشر.
+        </p>
+      </section>
+    </div>
+
+    <!-- 9. Contact -->
+    <section id="contact" class="policy-section zad-gradient text-white rounded-3xl p-6 sm:p-8 shadow-md">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-xl font-black mb-1">9. التواصل معنا</h2>
+          <p class="text-sm text-white/90">إذا كان لديك أي استفسار بخصوص سياسة الخصوصية أو طلب حذف البيانات:</p>
+        </div>
+        <div class="flex items-center gap-2 no-print">
+          <a id="emailLink" href="mailto:support@zad-food.app" class="px-4 py-2.5 rounded-2xl bg-white text-zad-dark font-extrabold text-sm shadow hover:bg-zad-tint transition">
+            support@zad-food.app
+          </a>
+          <button onclick="copyEmail()" id="copyBtn" class="px-3.5 py-2.5 rounded-2xl bg-white/15 border border-white/30 text-white font-bold text-xs hover:bg-white/25 transition">
+            نسخ البريد
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="text-center text-xs text-zad-muted py-8">
+    © 2026 تطبيق <strong>زاد (Zad)</strong>. جميع الحقوق محفوظة.
+  </footer>
+
+  <!-- Back to top -->
+  <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-5 left-5 w-11 h-11 rounded-full zad-gradient text-white shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 no-print" aria-label="العودة للأعلى">
+    ↑
+  </button>
+
+  <script>
+    // Highlight active section pill on scroll + toggle back-to-top button
+    const sections = document.querySelectorAll('.policy-section');
+    const navLinks = document.querySelectorAll('#toc a');
+    const topBtn = document.getElementById('topBtn');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((a) => {
+            const active = a.getAttribute('href') === '#' + entry.target.id;
+            a.classList.toggle('active', active);
+            a.classList.toggle('text-zad-muted', !active);
+          });
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach((s) => observer.observe(s));
+
+    window.addEventListener('scroll', () => {
+      const show = window.scrollY > 300;
+      topBtn.classList.toggle('opacity-0', !show);
+      topBtn.classList.toggle('pointer-events-none', !show);
+    });
+
+    function copyEmail() {
+      navigator.clipboard.writeText('support@zad-food.app').then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = 'تم النسخ ✓';
+        setTimeout(() => (btn.textContent = 'نسخ البريد'), 2000);
+      });
+    }
+  </script>
+</body>
+</html>

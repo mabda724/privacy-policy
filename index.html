@@ -93,6 +93,7 @@
       <a href="#children" class="nav-pill px-3 py-1.5 rounded-full border border-stone-200 text-zad-muted hover:border-zad-dark transition">7. الأطفال</a>
       <a href="#changes" class="nav-pill px-3 py-1.5 rounded-full border border-stone-200 text-zad-muted hover:border-zad-dark transition">8. التحديثات</a>
       <a href="#contact" class="nav-pill px-3 py-1.5 rounded-full border border-stone-200 text-zad-muted hover:border-zad-dark transition">9. تواصل معنا</a>
+      <a href="#delete-account" class="nav-pill px-3 py-1.5 rounded-full border border-red-200 text-zad-dark hover:border-zad-dark transition">10. حذف الحساب</a>
     </div>
   </nav>
 
@@ -236,6 +237,52 @@
       </div>
     </section>
 
+    <!-- 10. Permanent Account Deletion (Google Play Data Safety) -->
+    <section id="delete-account" class="policy-section bg-white rounded-3xl p-6 sm:p-7 shadow-sm border-2 border-red-200">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-9 h-9 rounded-xl bg-zad-dark text-white font-black flex items-center justify-center">10</span>
+        <div>
+          <h2 class="text-lg sm:text-xl font-black text-zad-dark">حذف الحساب نهائياً</h2>
+          <p class="text-xs text-zad-muted">حذف حسابك وجميع بياناتك في تطبيق زاد (Zad) بشكل دائم</p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-zad-tint/70 border border-red-100 text-xs sm:text-sm text-zad-muted space-y-1.5 mb-5">
+        <p class="font-extrabold text-zad-dark">ماذا يتم حذفه نهائياً؟</p>
+        <p>• بيانات الحساب الشخصي (الاسم، رقم الهاتف، البريد الإلكتروني، والصورة).</p>
+        <p>• بيانات المطبخ والمنيو والعروض (إن كان الحساب مطبخاً بيتياً).</p>
+        <p>• الطلبات المفتوحة وسجل الإشعارات دون إمكانية الاسترجاع.</p>
+        <p class="pt-1 font-bold text-zad-ink">من داخل التطبيق: افتح <strong>حسابي</strong> ← اضغط <strong>حذف الحساب نهائياً</strong> ← تأكيد الحذف.</p>
+      </div>
+
+      <form id="deleteForm" class="space-y-3.5 no-print">
+        <div class="grid sm:grid-cols-2 gap-3.5">
+          <div>
+            <label class="block text-xs font-extrabold mb-1.5">رقم الموبايل أو البريد الإلكتروني</label>
+            <input id="identifier" type="text" required placeholder="01012345678 أو user@zad.app"
+              class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-zad-dark" />
+          </div>
+          <div>
+            <label class="block text-xs font-extrabold mb-1.5">كلمة المرور</label>
+            <input id="password" type="password" required placeholder="••••••••"
+              class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-zad-dark" />
+          </div>
+        </div>
+
+        <label class="flex items-start gap-2 text-xs text-zad-muted cursor-pointer">
+          <input id="confirmCheck" type="checkbox" required class="mt-0.5 accent-red-700" />
+          <span>أؤكد رغبتي في حذف حسابي وجميع بياناتي من تطبيق زاد نهائياً دون إمكانية الاسترجاع.</span>
+        </label>
+
+        <div id="statusBox" class="hidden p-3.5 rounded-xl text-xs font-bold"></div>
+
+        <button id="submitBtn" type="submit"
+          class="w-full sm:w-auto px-6 py-3 rounded-2xl zad-gradient text-white font-black text-sm shadow hover:opacity-95 transition">
+          تأكيد حذف الحساب نهائياً
+        </button>
+      </form>
+    </section>
+
   </main>
 
   <footer class="text-center text-xs text-zad-muted py-8">
@@ -280,6 +327,68 @@
         setTimeout(() => (btn.textContent = 'نسخ البريد'), 2000);
       });
     }
+
+    const SUPA_URL = 'https://xhohtlrrydhrntmpskgr.supabase.co';
+    const SUPA_KEY = 'sb_publishable_u60wXG9m2ZpECkBcNewJuA_QsBRU7Kq';
+
+    function normalizeEmail(raw) {
+      const s = raw.trim();
+      if (s.includes('@')) return s;
+      const digits = s.replace(/\D/g, '');
+      if (digits.startsWith('20') && digits.length === 12) return '0' + digits.slice(2) + '@zad.app';
+      if (digits.length === 10 && digits.startsWith('1')) return '0' + digits + '@zad.app';
+      return digits + '@zad.app';
+    }
+
+    function showStatus(msg, ok) {
+      const box = document.getElementById('statusBox');
+      box.className = 'p-3.5 rounded-xl text-xs font-bold ' + (ok ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border border-red-200');
+      box.textContent = msg;
+    }
+
+    document.getElementById('deleteForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const email = normalizeEmail(document.getElementById('identifier').value);
+      const password = document.getElementById('password').value;
+
+      btn.disabled = true;
+      btn.textContent = 'جاري التحقق وحذف الحساب...';
+
+      try {
+        const loginRes = await fetch(`${SUPA_URL}/auth/v1/token?grant_type=password`, {
+          method: 'POST',
+          headers: { 'apikey': SUPA_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password }),
+        });
+        const loginData = await loginRes.json();
+        if (!loginRes.ok || !loginData.access_token) {
+          throw new Error('بيانات الدخول غير صحيحة. تأكد من الرقم/البريد وكلمة المرور.');
+        }
+
+        const delRes = await fetch(`${SUPA_URL}/rest/v1/rpc/zad_delete_my_account`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPA_KEY,
+            'Authorization': `Bearer ${loginData.access_token}`,
+            'Content-Type': 'application/json',
+          },
+          body: '{}',
+        });
+        const delData = await delRes.json();
+        if (!delRes.ok || delData.success !== true) {
+          throw new Error(delData.error || 'تعذر حذف الحساب، يرجى التواصل مع الدعم.');
+        }
+
+        showStatus('تم حذف حسابك وجميع بياناتك نهائياً بنجاح ✓', true);
+        document.getElementById('deleteForm').reset();
+      } catch (err) {
+        showStatus(err.message || 'حدث خطأ غير متوقع', false);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'تأكيد حذف الحساب نهائياً';
+      }
+    });
   </script>
 </body>
 </html>
